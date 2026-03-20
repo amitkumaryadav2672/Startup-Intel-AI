@@ -857,19 +857,21 @@ const ChatInterface = () => {
               }}>
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                   <Box sx={{ 
-                    mt: { xs: 4, sm: 0 },
-                    mb: { xs: 2.5, sm: 4 }, 
+                    mt: { xs: 2.5, sm: 0 },
+                    mb: { xs: 2, sm: 4 }, 
                     display: 'inline-flex', 
-                    p: { xs: 1.5, sm: 3 }, 
+                    p: { xs: 1.2, sm: 3 }, 
                     borderRadius: '35% 65% 65% 35% / 45% 45% 55% 55%', 
-                    background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.12)} 0%, ${alpha(theme.palette.secondary.main, 0.12)} 100%)`,
-                    border: `1px solid ${alpha(theme.palette.primary.main, 0.15)}`
+                    background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
+                    border: `1px solid ${alpha(theme.palette.primary.main, 0.12)}`
                   }}>
-                    <SmartToy sx={{ fontSize: { xs: 32, sm: 56 }, color: theme.palette.primary.main }} />
+                    <SmartToy sx={{ fontSize: { xs: 28, sm: 56 }, color: theme.palette.primary.main }} />
                   </Box>
                   <Typography variant="h4" fontWeight="900" gutterBottom sx={{ 
                     letterSpacing: -1, 
-                    fontSize: { xs: '1.75rem', sm: '2.5rem' },
+                    fontSize: { xs: '1.5rem', sm: '2.5rem' },
+                    lineHeight: 1.1,
+                    mb: 1.5,
                     background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, 
                     WebkitBackgroundClip: 'text', 
                     WebkitTextFillColor: 'transparent' 
@@ -877,39 +879,39 @@ const ChatInterface = () => {
                     Shark Tank Ready?
                   </Typography>
                   <Typography variant="body1" color="text.secondary" sx={{ 
-                    mb: 4, 
+                    mb: { xs: 2.5, sm: 4 }, 
                     maxWidth: 500, 
-                    fontSize: { xs: '0.9rem', sm: '1.1rem' }, 
+                    fontSize: { xs: '0.8rem', sm: '1.1rem' }, 
+                    lineHeight: 1.4,
                     fontWeight: 500,
-                    px: 2
+                    px: 3
                   }}>
                     Analyze your idea's PMF, unit economics, and scalability in seconds.
                   </Typography>
                   
-                  <Stack direction="column" alignItems="center" spacing={1.5} sx={{ width: '100%', px: 1 }}>
+                  <Stack direction="column" alignItems="center" spacing={1.2} sx={{ width: '100%', px: 2 }}>
                     {exampleIdeas.map((idea, idx) => (
                       <Box 
                         key={idx} 
                         onClick={() => handleSend(idea)}
                         component={motion.div}
-                        whileHover={{ scale: 1.02, y: -2, boxShadow: `0 10px 20px ${alpha(theme.palette.primary.main, 0.1)}` }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: 1.01, y: -1 }}
+                        whileTap={{ scale: 0.99 }}
                         sx={{ 
-                          borderRadius: '16px', 
-                          px: 2.5, 
-                          py: 2, 
+                          borderRadius: '14px', 
+                          px: 2, 
+                          py: { xs: 1.2, sm: 2 }, 
                           maxWidth: 500,
                           width: '100%',
                           textAlign: 'left',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
-                          gap: 1.5,
-                          borderColor: alpha(theme.palette.divider, 0.15),
+                          gap: 1.2,
+                          borderColor: alpha(theme.palette.divider, 0.12),
                           border: '1px solid',
                           background: theme.palette.mode === 'light' ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.03)',
                           backdropFilter: 'blur(10px)',
-                          transition: 'all 0.2s',
                           '&:hover': { 
                             borderColor: theme.palette.primary.main,
                             background: theme.palette.mode === 'light' ? '#fff' : alpha(theme.palette.primary.main, 0.05)
@@ -920,8 +922,8 @@ const ChatInterface = () => {
                           variant="body2" 
                           sx={{ 
                             fontWeight: 700, 
-                            fontSize: { xs: '0.85rem', sm: '0.95rem' },
-                            lineHeight: 1.4,
+                            fontSize: { xs: '0.8rem', sm: '0.95rem' },
+                            lineHeight: 1.3,
                             color: theme.palette.text.primary
                           }}
                         >
