@@ -1192,17 +1192,7 @@ const ChatInterface = () => {
                 {loading ? <CircularProgress size={24} color="inherit" /> : <Send />}
               </Button>
             </Stack>
-            <Typography variant="caption" color="text.secondary" sx={{ 
-              mt: 1, 
-              display: 'block', 
-              textAlign: 'center', 
-              fontWeight: 600, 
-              letterSpacing: 0.5,
-              fontSize: { xs: '0.55rem', sm: '0.75rem' },
-              opacity: 0.6
-            }}>
-              DISRUPT THE MARKET • ANALYZE PITCH DECKS • PRESS <strong>ENTER</strong>
-            </Typography>
+
             <Box sx={{ mt: 0.5, textAlign: 'center' }}>
               <Typography 
                 variant="caption" 
