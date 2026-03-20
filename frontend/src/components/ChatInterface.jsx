@@ -241,10 +241,8 @@ const Header = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   zIndex: 10,
   [theme.breakpoints.down('sm')]: {
-    padding: theme.spacing(1.5, 2),
-    flexDirection: 'column',
-    gap: theme.spacing(1),
-    justifyContent: 'center',
+    padding: theme.spacing(1, 2),
+    height: 60,
   },
 }));
 
@@ -786,42 +784,42 @@ const ChatInterface = () => {
           <Header>
             <Stack 
               direction="row" 
-              spacing={{ xs: 1.5, sm: 2.5 }} 
+              spacing={{ xs: 1, sm: 2.5 }} 
               alignItems="center"
-              sx={{ width: { xs: '100%', sm: 'auto' }, justifyContent: { xs: 'center', sm: 'flex-start' } }}
+              sx={{ justifyContent: 'flex-start' }}
             >
               <Avatar sx={{ 
                 bgcolor: alpha('#fff', 0.25), 
-                width: { xs: 32, sm: 48 }, 
-                height: { xs: 32, sm: 48 }, 
-                boxShadow: '0 4px 20px rgba(0,0,0,0.1)' 
+                width: { xs: 24, sm: 48 }, 
+                height: { xs: 24, sm: 48 }, 
+                boxShadow: '0 2px 10px rgba(0,0,0,0.1)' 
               }}>
-                <RocketLaunch sx={{ color: '#fff', fontSize: { xs: 18, sm: 24 } }} />
+                <RocketLaunch sx={{ color: '#fff', fontSize: { xs: 14, sm: 24 } }} />
               </Avatar>
-              <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
-                <Typography variant="subtitle1" fontWeight="800" sx={{ lineHeight: 1, letterSpacing: -0.5, fontSize: { xs: '0.9rem', sm: '1.25rem' } }}>
+              <Box>
+                <Typography variant="subtitle1" fontWeight="800" sx={{ lineHeight: 1, letterSpacing: -0.5, fontSize: { xs: '0.8rem', sm: '1.25rem' } }}>
                   Startup Intel AI
                 </Typography>
-                <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', sm: 'flex-start' }, gap: 0.5, fontSize: { xs: '0.6rem', sm: '0.75rem' } }}>
+                <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 500, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: 0.5, fontSize: '0.75rem' }}>
                   <AutoGraph sx={{ fontSize: 12 }} /> Strategy Analysis Active
                 </Typography>
               </Box>
             </Stack>
             
-            <Stack direction="row" spacing={1.5}>
+            <Stack direction="row" spacing={{ xs: 0.5, sm: 1.5 }}>
               <Tooltip title="Switch Visual Theme">
-                <IconButton onClick={colorMode.toggleColorMode} sx={{ color: 'white', bgcolor: alpha('#fff', 0.1) }}>
-                  {theme.palette.mode === 'dark' ? <LightMode /> : <DarkMode />}
+                <IconButton onClick={colorMode.toggleColorMode} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.5, sm: 1 } }}>
+                  {theme.palette.mode === 'dark' ? <LightMode sx={{ fontSize: { xs: 16, sm: 24 } }} /> : <DarkMode sx={{ fontSize: { xs: 16, sm: 24 } }} />}
                 </IconButton>
               </Tooltip>
               <Tooltip title="Download Strategy Report">
-                <IconButton onClick={exportPDF} disabled={messages.length === 0} sx={{ color: 'white', bgcolor: alpha('#fff', 0.1) }}>
-                  <Download />
+                <IconButton onClick={exportPDF} disabled={messages.length === 0} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.5, sm: 1 } }}>
+                  <Download sx={{ fontSize: { xs: 16, sm: 24 } }} />
                 </IconButton>
               </Tooltip>
               <Tooltip title="New Pitch Analysis">
-                <IconButton onClick={resetChat} sx={{ color: 'white', bgcolor: alpha('#fff', 0.1) }}>
-                  <Refresh />
+                <IconButton onClick={resetChat} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.5, sm: 1 } }}>
+                  <Refresh sx={{ fontSize: { xs: 16, sm: 24 } }} />
                 </IconButton>
               </Tooltip>
             </Stack>
