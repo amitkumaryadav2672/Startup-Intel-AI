@@ -242,6 +242,9 @@ const Header = styled(Box)(({ theme }) => ({
   zIndex: 10,
   [theme.breakpoints.down('sm')]: {
     padding: theme.spacing(1.5, 2),
+    flexDirection: 'column',
+    gap: theme.spacing(1),
+    justifyContent: 'center',
   },
 }));
 
@@ -782,20 +785,25 @@ const ChatInterface = () => {
           )}
 
           <Header>
-            <Stack direction="row" spacing={{ xs: 1.5, sm: 2.5 }} alignItems="center">
+            <Stack 
+              direction="row" 
+              spacing={{ xs: 1.5, sm: 2.5 }} 
+              alignItems="center"
+              sx={{ width: { xs: '100%', sm: 'auto' }, justifyContent: { xs: 'center', sm: 'flex-start' } }}
+            >
               <Avatar sx={{ 
                 bgcolor: alpha('#fff', 0.25), 
-                width: { xs: 36, sm: 48 }, 
-                height: { xs: 36, sm: 48 }, 
+                width: { xs: 32, sm: 48 }, 
+                height: { xs: 32, sm: 48 }, 
                 boxShadow: '0 4px 20px rgba(0,0,0,0.1)' 
               }}>
-                <RocketLaunch sx={{ color: '#fff', fontSize: { xs: 20, sm: 24 } }} />
+                <RocketLaunch sx={{ color: '#fff', fontSize: { xs: 18, sm: 24 } }} />
               </Avatar>
-              <Box>
-                <Typography variant="subtitle1" fontWeight="800" sx={{ lineHeight: 1, letterSpacing: -0.5, fontSize: { xs: '1rem', sm: '1.25rem' } }}>
+              <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
+                <Typography variant="subtitle1" fontWeight="800" sx={{ lineHeight: 1, letterSpacing: -0.5, fontSize: { xs: '0.9rem', sm: '1.25rem' } }}>
                   Startup Intel AI
                 </Typography>
-                <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 0.5, fontSize: { xs: '0.65rem', sm: '0.75rem' } }}>
+                <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 500, display: 'flex', alignItems: 'center', justifyContent: { xs: 'center', sm: 'flex-start' }, gap: 0.5, fontSize: { xs: '0.6rem', sm: '0.75rem' } }}>
                   <AutoGraph sx={{ fontSize: 12 }} /> Strategy Analysis Active
                 </Typography>
               </Box>
@@ -852,14 +860,14 @@ const ChatInterface = () => {
               }}>
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                   <Box sx={{ 
-                    mb: 4, 
+                    mb: { xs: 2, sm: 4 }, 
                     display: 'inline-flex', 
-                    p: 3, 
+                    p: { xs: 2, sm: 3 }, 
                     borderRadius: '35% 65% 65% 35% / 45% 45% 55% 55%', 
                     background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.15)} 0%, ${alpha(theme.palette.secondary.main, 0.15)} 100%)`,
                     border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`
                   }}>
-                    <SmartToy sx={{ fontSize: 56, color: theme.palette.primary.main }} />
+                    <SmartToy sx={{ fontSize: { xs: 40, sm: 56 }, color: theme.palette.primary.main }} />
                   </Box>
                   <Typography variant="h4" fontWeight="900" gutterBottom sx={{ 
                     letterSpacing: -1, 
