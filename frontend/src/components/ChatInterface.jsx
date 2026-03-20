@@ -859,14 +859,15 @@ const ChatInterface = () => {
               }}>
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                   <Box sx={{ 
-                    mb: { xs: 2, sm: 4 }, 
+                    mt: { xs: 4, sm: 0 },
+                    mb: { xs: 2.5, sm: 4 }, 
                     display: 'inline-flex', 
-                    p: { xs: 2, sm: 3 }, 
+                    p: { xs: 1.5, sm: 3 }, 
                     borderRadius: '35% 65% 65% 35% / 45% 45% 55% 55%', 
-                    background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.15)} 0%, ${alpha(theme.palette.secondary.main, 0.15)} 100%)`,
-                    border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`
+                    background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.12)} 0%, ${alpha(theme.palette.secondary.main, 0.12)} 100%)`,
+                    border: `1px solid ${alpha(theme.palette.primary.main, 0.15)}`
                   }}>
-                    <SmartToy sx={{ fontSize: { xs: 40, sm: 56 }, color: theme.palette.primary.main }} />
+                    <SmartToy sx={{ fontSize: { xs: 32, sm: 56 }, color: theme.palette.primary.main }} />
                   </Box>
                   <Typography variant="h4" fontWeight="900" gutterBottom sx={{ 
                     letterSpacing: -1, 
@@ -1190,10 +1191,18 @@ const ChatInterface = () => {
                 {loading ? <CircularProgress size={24} color="inherit" /> : <Send />}
               </Button>
             </Stack>
-            <Typography variant="caption" color="text.secondary" sx={{ mt: 2, display: 'block', textAlign: 'center', fontWeight: 600, letterSpacing: 0.5 }}>
+            <Typography variant="caption" color="text.secondary" sx={{ 
+              mt: 1.5, 
+              display: 'block', 
+              textAlign: 'center', 
+              fontWeight: 600, 
+              letterSpacing: 0.5,
+              fontSize: { xs: '0.6rem', sm: '0.75rem' },
+              opacity: 0.7
+            }}>
               DISRUPT THE MARKET • ANALYZE PITCH DECKS • PRESS <strong>ENTER</strong>
             </Typography>
-            <Box sx={{ mt: 1.5, textAlign: 'center' }}>
+            <Box sx={{ mt: 1, textAlign: 'center' }}>
               <Typography 
                 variant="caption" 
                 sx={{ 
@@ -1202,7 +1211,8 @@ const ChatInterface = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: 0.5
+                  gap: 0.5,
+                  fontSize: { xs: '0.65rem', sm: '0.75rem' }
                 }}
               >
                 Developed by 
