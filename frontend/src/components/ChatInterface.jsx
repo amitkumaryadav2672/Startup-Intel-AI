@@ -861,38 +861,67 @@ const ChatInterface = () => {
                   }}>
                     <SmartToy sx={{ fontSize: 56, color: theme.palette.primary.main }} />
                   </Box>
-                  <Typography variant="h4" fontWeight="900" gutterBottom sx={{ letterSpacing: -1, background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  <Typography variant="h4" fontWeight="900" gutterBottom sx={{ 
+                    letterSpacing: -1, 
+                    fontSize: { xs: '1.75rem', sm: '2.5rem' },
+                    background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, 
+                    WebkitBackgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent' 
+                  }}>
                     Shark Tank Ready?
                   </Typography>
-                  <Typography variant="body1" color="text.secondary" sx={{ mb: 6, maxWidth: 500, fontSize: '1.1rem', fontWeight: 500 }}>
-                    Upload your pitch deck (PDF/Doc) or type your disruptor idea. We'll analyze PMF, unit economics, and scalability.
+                  <Typography variant="body1" color="text.secondary" sx={{ 
+                    mb: 4, 
+                    maxWidth: 500, 
+                    fontSize: { xs: '0.9rem', sm: '1.1rem' }, 
+                    fontWeight: 500,
+                    px: 2
+                  }}>
+                    Analyze your idea's PMF, unit economics, and scalability in seconds.
                   </Typography>
                   
-                  <Stack direction="column" alignItems="center" spacing={2.5}>
+                  <Stack direction="column" alignItems="center" spacing={1.5} sx={{ width: '100%', px: 1 }}>
                     {exampleIdeas.map((idea, idx) => (
-                      <Chip 
+                      <Box 
                         key={idx} 
-                        label={idea} 
                         onClick={() => handleSend(idea)}
-                        variant="outlined"
-                        clickable
                         component={motion.div}
-                        whileHover={{ scale: 1.05, y: -4, boxShadow: `0 10px 20px ${alpha(theme.palette.primary.main, 0.15)}`, bgcolor: alpha(theme.palette.primary.main, 0.05) }}
+                        whileHover={{ scale: 1.02, y: -2, boxShadow: `0 10px 20px ${alpha(theme.palette.primary.main, 0.1)}` }}
                         whileTap={{ scale: 0.98 }}
                         sx={{ 
-                          borderRadius: '20px', 
-                          px: 2, 
-                          py: 3.5, 
+                          borderRadius: '16px', 
+                          px: 2.5, 
+                          py: 2, 
                           maxWidth: 500,
                           width: '100%',
-                          fontWeight: 700,
-                          fontSize: '0.95rem',
-                          borderColor: alpha(theme.palette.divider, 0.2),
-                          background: theme.palette.mode === 'light' ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.03)',
+                          textAlign: 'left',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 1.5,
+                          borderColor: alpha(theme.palette.divider, 0.15),
+                          border: '1px solid',
+                          background: theme.palette.mode === 'light' ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.03)',
                           backdropFilter: 'blur(10px)',
-                          '&:hover': { borderColor: theme.palette.primary.main }
+                          transition: 'all 0.2s',
+                          '&:hover': { 
+                            borderColor: theme.palette.primary.main,
+                            background: theme.palette.mode === 'light' ? '#fff' : alpha(theme.palette.primary.main, 0.05)
+                          }
                         }}
-                      />
+                      >
+                        <Typography 
+                          variant="body2" 
+                          sx={{ 
+                            fontWeight: 700, 
+                            fontSize: { xs: '0.85rem', sm: '0.95rem' },
+                            lineHeight: 1.4,
+                            color: theme.palette.text.primary
+                          }}
+                        >
+                          {idea}
+                        </Typography>
+                      </Box>
                     ))}
                   </Stack>
                 </motion.div>
