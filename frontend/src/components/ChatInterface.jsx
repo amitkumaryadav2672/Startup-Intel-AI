@@ -254,7 +254,7 @@ const InputArea = styled(Box)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.background.paper, 0.4),
   zIndex: 10,
   [theme.breakpoints.down('sm')]: {
-    padding: theme.spacing(2, 2, 3, 2),
+    padding: theme.spacing(1.5, 2, 2, 2),
   },
 }));
 
@@ -1161,11 +1161,12 @@ const ChatInterface = () => {
                 variant="outlined"
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    borderRadius: '24px',
+                    borderRadius: '18px',
                     bgcolor: theme.palette.mode === 'light' ? '#fff' : alpha(theme.palette.background.paper, 0.8),
-                    fontSize: '1rem',
+                    fontSize: { xs: '0.85rem', sm: '1rem' },
                     fontWeight: 500,
                     transition: 'all 0.3s',
+                    padding: { xs: '8px 4px', sm: '12px 8px' },
                     '&.Mui-focused': {
                       boxShadow: `0 0 0 4px ${alpha(theme.palette.primary.main, 0.15)}`,
                       borderColor: theme.palette.primary.main,
@@ -1179,9 +1180,9 @@ const ChatInterface = () => {
                 onClick={() => handleSend()}
                 disabled={(!input.trim() && !attachedFile) || loading}
                 sx={{
-                  height: 56,
-                  minWidth: 56,
-                  borderRadius: '20px',
+                  height: { xs: 44, sm: 56 },
+                  minWidth: { xs: 44, sm: 56 },
+                  borderRadius: '16px',
                   boxShadow: `0 8px 24px ${alpha(theme.palette.primary.main, 0.3)}`,
                   background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
                   '&:hover': { scale: 1.05, boxShadow: `0 12px 32px ${alpha(theme.palette.primary.main, 0.4)}` },
@@ -1192,17 +1193,17 @@ const ChatInterface = () => {
               </Button>
             </Stack>
             <Typography variant="caption" color="text.secondary" sx={{ 
-              mt: 1.5, 
+              mt: 1, 
               display: 'block', 
               textAlign: 'center', 
               fontWeight: 600, 
               letterSpacing: 0.5,
-              fontSize: { xs: '0.6rem', sm: '0.75rem' },
-              opacity: 0.7
+              fontSize: { xs: '0.55rem', sm: '0.75rem' },
+              opacity: 0.6
             }}>
               DISRUPT THE MARKET • ANALYZE PITCH DECKS • PRESS <strong>ENTER</strong>
             </Typography>
-            <Box sx={{ mt: 1, textAlign: 'center' }}>
+            <Box sx={{ mt: 0.5, textAlign: 'center' }}>
               <Typography 
                 variant="caption" 
                 sx={{ 
@@ -1212,7 +1213,7 @@ const ChatInterface = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: 0.5,
-                  fontSize: { xs: '0.65rem', sm: '0.75rem' }
+                  fontSize: { xs: '0.6rem', sm: '0.75rem' }
                 }}
               >
                 Developed by 
