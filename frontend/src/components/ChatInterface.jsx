@@ -289,8 +289,7 @@ const TypingIndicator = () => {
 const exampleIdeas = [
   "🚀 Is my AI-powered nutrition SaaS idea actually useful for real users?",
   "🌱 How can I build eco-friendly packaging that D2C brands will love and pay for?",
-  "💡 What is the biggest problem my target users face and how can I solve it?",
-  "📊 Who are my first 50 customers and how can I reach them for free?"
+  "💡 What is the biggest problem my target users face and how can I solve it?"
 ];
 
 const ChatInterface = () => {
