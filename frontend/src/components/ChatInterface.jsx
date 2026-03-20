@@ -800,8 +800,16 @@ const ChatInterface = () => {
                 <Typography variant="subtitle1" fontWeight="800" sx={{ lineHeight: 1, letterSpacing: -0.5, fontSize: { xs: '0.8rem', sm: '1.25rem' } }}>
                   Startup Intel AI
                 </Typography>
-                <Typography variant="caption" sx={{ opacity: 0.8, fontWeight: 500, display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: 0.5, fontSize: '0.75rem' }}>
-                  <AutoGraph sx={{ fontSize: 12 }} /> Strategy Analysis Active
+                <Typography variant="caption" sx={{ 
+                  opacity: 0.8, 
+                  fontWeight: 600, 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: 0.5, 
+                  fontSize: { xs: '0.6rem', sm: '0.75rem' },
+                  mt: { xs: 0.2, sm: 0 }
+                }}>
+                  <AutoGraph sx={{ fontSize: { xs: 10, sm: 12 } }} /> Strategy Analysis Active
                 </Typography>
               </Box>
             </Stack>
