@@ -806,20 +806,20 @@ const ChatInterface = () => {
               </Box>
             </Stack>
             
-            <Stack direction="row" spacing={{ xs: 0.5, sm: 1.5 }}>
+            <Stack direction="row" spacing={{ xs: 0.8, sm: 1.5 }}>
               <Tooltip title="Switch Visual Theme">
-                <IconButton onClick={colorMode.toggleColorMode} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.5, sm: 1 } }}>
-                  {theme.palette.mode === 'dark' ? <LightMode sx={{ fontSize: { xs: 16, sm: 24 } }} /> : <DarkMode sx={{ fontSize: { xs: 16, sm: 24 } }} />}
+                <IconButton onClick={colorMode.toggleColorMode} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.8, sm: 1 } }}>
+                  {theme.palette.mode === 'dark' ? <LightMode sx={{ fontSize: { xs: 20, sm: 24 } }} /> : <DarkMode sx={{ fontSize: { xs: 20, sm: 24 } }} />}
                 </IconButton>
               </Tooltip>
               <Tooltip title="Download Strategy Report">
-                <IconButton onClick={exportPDF} disabled={messages.length === 0} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.5, sm: 1 } }}>
-                  <Download sx={{ fontSize: { xs: 16, sm: 24 } }} />
+                <IconButton onClick={exportPDF} disabled={messages.length === 0} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.8, sm: 1 } }}>
+                  <Download sx={{ fontSize: { xs: 20, sm: 24 } }} />
                 </IconButton>
               </Tooltip>
               <Tooltip title="New Pitch Analysis">
-                <IconButton onClick={resetChat} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.5, sm: 1 } }}>
-                  <Refresh sx={{ fontSize: { xs: 16, sm: 24 } }} />
+                <IconButton onClick={resetChat} size="small" sx={{ color: 'white', bgcolor: alpha('#fff', 0.1), p: { xs: 0.8, sm: 1 } }}>
+                  <Refresh sx={{ fontSize: { xs: 20, sm: 24 } }} />
                 </IconButton>
               </Tooltip>
             </Stack>
