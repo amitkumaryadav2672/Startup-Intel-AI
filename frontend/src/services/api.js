@@ -10,30 +10,33 @@ const VISION_MODEL = 'openai/gpt-4o-mini';
 const TEXT_MODEL   = 'openai/gpt-3.5-turbo';
 
 // ── System prompt ─────────────────────────────────────────────────────────────
-const SYSTEM_PROMPT = `You are a Silicon Valley Startup Analyst and Strategy Lead at "Startup Intel AI".
-Your purpose is to validate ideas, analyze pitch decks, and build execution playbooks for founders.
+const SYSTEM_PROMPT = `You are an Elite Silicon Valley Startup Analyst and Strategy Lead at "Startup Intel AI".
+Your purpose is to provide "Investor-Ready" (9/10 depth) analysis. You don't just "answer" — you critique, improve, and strategize.
+
+**ANALYSIS DEPTH REQUIREMENTS:**
+1. **Strategic Moat**: Don't just list features; identify the UNFAIR ADVANTAGE (e.g., Network Effects, Data Moat, High Switching Costs).
+2. **Specific Traction**: The 30-Day plan MUST be broken into Week 1, Week 2, Week 3, and Week 4 with specific goals (e.g., "Onboard 50 vendors").
+3. **Data Proactivity**: If a founder lacks data, SUGGEST the industry benchmarks or market sizes (TAM/SAM/SOM) they should target.
+4. **Metrics-Driven**: Always list the top 5 KPIs (Key Performance Indicators) they must track.
+
+**PROACTIVE STEERING ROLE:**
+- You are a mentor/partner. **NEVER** leave the founder hanging.
+- **ALWAYS** end with a clear "Move" the founder must make right now.
 
 **SMART LANGUAGE MIRRORING:**
-- **IF user asks in English**: Respond ONLY in professional English.
-- **IF user asks in Hinglish or Hindi**: Respond in conversational professional Hinglish.
-- Always mirror the user's language choice to be most helpful.
+- English for professional queries.
+- Hinglish/Hindi for conversational professional queries.
 
-You must be direct, data-driven, and specialized in:
-1. **Problem-Market Fit (PMF)**: Is the problem urgent?
-2. **Unit Economics**: How will this scale? (LTV/CAC)
-3. **Moats**: What is the unfair advantage?
-4. **GTM Strategy**: Organic growth and zero-ad acquisition.
-
-Guidelines:
-- **No generic fluff**: Tell them WHY it works or WHERE it fails.
-- **Specifics only**: Critique UI/UX and PDF data directly.
-- **Structure**:
+**STRUCTURE (MANDATORY):**
 ### 🎯 Executive Summary
-### ⚖️ Strategic Moat & PMF
+### ⚖️ Strategic Moat & PMF (High Depth)
 ### ⚙️ Execution & Tech Stack
-### 📈 30-Day Traction Plan
+### 📈 30-Day Traction Plan (Week 1 to 4)
+### 📊 Success Metrics (KPIs)
+### 🧠 Final Evaluation & Verdict (Score /10)
+### 🚀 Next Steps & Instructions (Mandatory)
 
-Always be honest and professional.`;
+Always be brutally honest, data-driven, and proactive.`;
 
 // ── PDF text extractor (uses PDF.js from CDN) ─────────────────────────────────
 const extractPdfText = async (base64DataUrl) => {
@@ -164,20 +167,15 @@ Based on your question, here's what you need to know:
 
 The key to success here is **starting small and validating fast**. Most founders over-plan and under-execute.
 
-### 3 Practical Steps:
-1. **Talk to 10 real people** this week who would be your customers — understand their #1 pain
-2. **Build the simplest version** that solves that one pain — nothing more
-3. **Get your first paying customer** before adding any new features
+### 📋 Your Immediate Instructions:
+1. **Validation Task**: Talk to 10 real people this week who would be your customers — understand their #1 pain.
+2. **Build Task**: Build the simplest version (MVP) that solves that one pain — nothing more.
+3. **Growth Task**: Get your first paying customer before adding any new features.
 
-### The Truth:
-- You don't need a perfect product to start
-- You need a real problem worth solving
-- Revenue validates your idea better than any analysis
+### 🚀 Next Action (Do this right now):
+Write down: **Who specifically will pay for this?** Why would they pay YOU and not someone else? Reply to me with your answer when you're done.
 
-### Next Action (do this today):
-Write down: Who specifically will pay for this? Why would they pay YOU and not someone else?
-
-> 💡 Add your OpenRouter API key to get a fully personalized AI answer to your specific question!`;
+> 💡 *Add your OpenRouter API key to get a fully personalized AI mentor that guides you through every step!*`;
   }
 
   // ── Real API calls ─────────────────────────────────────────────────────────
@@ -251,7 +249,7 @@ Write down: Who specifically will pay for this? Why would they pay YOU and not s
 
     // ── CASE 4: Plain text question (no file) ───────────────────────────────
     else {
-      userContent = message;
+      userContent = `${message}\n\n(Note: After answering, give me clear "Next Steps & Instructions" on what I should do now to move my startup forward.)`;
     }
 
     const response = await axios.post(
