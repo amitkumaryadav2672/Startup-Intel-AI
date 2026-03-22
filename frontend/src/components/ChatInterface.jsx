@@ -247,7 +247,7 @@ const Header = styled(Box)(({ theme }) => ({
 }));
 
 const InputArea = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(3, 5, 4, 5),
+  padding: theme.spacing(2, 5, 2.5, 5),
   borderTop: `1px solid ${alpha(theme.palette.divider, 0.08)}`,
   backgroundColor: alpha(theme.palette.background.paper, 0.4),
   zIndex: 10,
@@ -868,21 +868,21 @@ const ChatInterface = () => {
               }}>
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                   <Box sx={{ 
-                    mt: { xs: 2.5, sm: 0 },
-                    mb: { xs: 2, sm: 2 }, 
+                    mt: { xs: 2.5, sm: -2 },
+                    mb: { xs: 2, sm: 1.5 }, 
                     display: 'inline-flex', 
-                    p: { xs: 1.2, sm: 2.5 }, 
-                    borderRadius: '32px',
+                    p: { xs: 1.2, sm: 2 }, 
+                    borderRadius: '24px',
                     background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
                     border: `1px solid ${alpha(theme.palette.primary.main, 0.12)}`
                   }}>
-                    <SmartToy sx={{ fontSize: { xs: 28, sm: 48 }, color: theme.palette.primary.main }} />
+                    <SmartToy sx={{ fontSize: { xs: 28, sm: 40 }, color: theme.palette.primary.main }} />
                   </Box>
                   <Typography variant="h4" fontWeight="900" gutterBottom sx={{ 
                     letterSpacing: -1, 
-                    fontSize: { xs: '1.5rem', sm: '2.2rem' },
+                    fontSize: { xs: '1.5rem', sm: '2rem' },
                     lineHeight: 1.1,
-                    mb: 1,
+                    mb: 0.5,
                     background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, 
                     WebkitBackgroundClip: 'text', 
                     WebkitTextFillColor: 'transparent' 
