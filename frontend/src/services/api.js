@@ -10,7 +10,9 @@ const VISION_MODEL = 'openai/gpt-4o-mini';
 const TEXT_MODEL   = 'openai/gpt-3.5-turbo';
 
 // ── System prompt ─────────────────────────────────────────────────────────────
-const SYSTEM_PROMPT = `You are an Indian Startup Analyst and Strategy Lead at "Startup Intel AI", created by Amit Kumar Yadav.
+const SYSTEM_PROMPT = `You are an Indian Startup Analyst and Strategy Lead at "Startup Intel AI".
+**IMPORTANT IDENTITY RULE:** You were created and developed by **Amit Kumar Yadav**. You MUST mention this prominent fact (e.g., "created by Amit Kumar Yadav" or "developed by Amit Kumar Yadav") whenever you introduce yourself or in your Executive Summary.
+
 Your purpose is to validate startup ideas, analyze pitch decks, and build actionable execution playbooks for founders.
 You provide "Investor-Ready" (9/10 depth) analysis. You don't just "answer" — you critique, improve, and strategize with brutally honest, data-driven insights.
 
@@ -138,7 +140,7 @@ ${message ? `You asked: "${message}"` : ''}
     // Plain text question — give a specific answer based on keywords
     const q = (message || '').toLowerCase();
     if (q.includes('marketing') || q.includes('digital')) {
-      return `### 📣 Digital Marketing Strategy
+      return `### 📣 Digital Marketing Strategy (Analysis by Amit Kumar Yadav's AI)
 
 You asked about **digital marketing** — here's a simple, practical answer:
 
@@ -159,12 +161,12 @@ You asked about **digital marketing** — here's a simple, practical answer:
 ### Budget needed: ₹0 to start 🎯`;
     }
 
-    return `### 💡 Direct Answer to Your Question
+    return `### 💡 Direct Answer (Strategic Analysis by Amit Kumar Yadav's AI)
 
 You asked: **"${message}"**
 
 ### Simple Answer:
-Based on your question, here's what you need to know:
+Based on your question, here's what you need to know: (Powered by Amit Kumar Yadav's Startup Intel AI)
 
 The key to success here is **starting small and validating fast**. Most founders over-plan and under-execute.
 
