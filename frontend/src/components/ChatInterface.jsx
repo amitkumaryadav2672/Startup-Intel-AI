@@ -859,28 +859,30 @@ const ChatInterface = () => {
                 alignItems: 'center', 
                 justifyContent: { xs: 'flex-start', sm: 'center' },
                 pt: { xs: 2.5, sm: 0 },
+                pb: { xs: 2, sm: 4 },
                 textAlign: 'center',
                 px: 4,
                 position: 'relative',
-                zIndex: 2
+                zIndex: 2,
+                overflowY: 'auto'
               }}>
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
                   <Box sx={{ 
                     mt: { xs: 2.5, sm: 0 },
-                    mb: { xs: 2, sm: 4 }, 
+                    mb: { xs: 2, sm: 2 }, 
                     display: 'inline-flex', 
-                    p: { xs: 1.2, sm: 3 }, 
-                    borderRadius: '35% 65% 65% 35% / 45% 45% 55% 55%', 
+                    p: { xs: 1.2, sm: 2.5 }, 
+                    borderRadius: '32px',
                     background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)`,
                     border: `1px solid ${alpha(theme.palette.primary.main, 0.12)}`
                   }}>
-                    <SmartToy sx={{ fontSize: { xs: 28, sm: 56 }, color: theme.palette.primary.main }} />
+                    <SmartToy sx={{ fontSize: { xs: 28, sm: 48 }, color: theme.palette.primary.main }} />
                   </Box>
                   <Typography variant="h4" fontWeight="900" gutterBottom sx={{ 
                     letterSpacing: -1, 
-                    fontSize: { xs: '1.5rem', sm: '2.5rem' },
+                    fontSize: { xs: '1.5rem', sm: '2.2rem' },
                     lineHeight: 1.1,
-                    mb: 1.5,
+                    mb: 1,
                     background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`, 
                     WebkitBackgroundClip: 'text', 
                     WebkitTextFillColor: 'transparent' 
@@ -888,41 +890,56 @@ const ChatInterface = () => {
                     Shark Tank Ready?
                   </Typography>
                   <Typography variant="body1" color="text.secondary" sx={{ 
-                    mb: { xs: 2.5, sm: 4 }, 
+                    mb: { xs: 2.5, sm: 3.5 }, 
                     maxWidth: 500, 
-                    fontSize: { xs: '0.8rem', sm: '1.1rem' }, 
+                    fontSize: { xs: '0.8rem', sm: '1rem' }, 
                     lineHeight: 1.4,
                     fontWeight: 500,
-                    px: 3
+                    px: 3,
+                    mx: 'auto'
                   }}>
                     Analyze your idea's PMF, unit economics, and scalability in seconds.
                   </Typography>
                   
-                  <Stack direction="column" alignItems="center" spacing={1.2} sx={{ width: '100%', px: 2 }}>
+                  <Box sx={{ 
+                    display: 'flex', 
+                    flexDirection: { xs: 'column', sm: 'row' }, 
+                    flexWrap: 'wrap',
+                    justifyContent: 'center',
+                    gap: 1.5, 
+                    width: '100%', 
+                    maxWidth: 900,
+                    mx: 'auto',
+                    px: { xs: 2, sm: 0 } 
+                  }}>
                     {exampleIdeas.map((idea, idx) => (
                       <Box 
                         key={idx} 
                         onClick={() => handleSend(idea)}
                         component={motion.div}
-                        whileHover={{ scale: 1.01, y: -1 }}
-                        whileTap={{ scale: 0.99 }}
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
                         sx={{ 
-                          borderRadius: '14px', 
-                          px: 2, 
+                          borderRadius: '16px', 
+                          px: 2.5, 
                           py: { xs: 1.2, sm: 2 }, 
-                          maxWidth: 500,
-                          width: '100%',
-                          textAlign: 'left',
+                          flex: { xs: '1 1 100%', sm: '1 1 200px' },
+                          maxWidth: { xs: 500, sm: 280 },
+                          textAlign: 'center',
                           cursor: 'pointer',
                           display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
                           alignItems: 'center',
                           gap: 1.2,
                           borderColor: alpha(theme.palette.divider, 0.12),
                           border: '1px solid',
                           background: theme.palette.mode === 'light' ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.03)',
                           backdropFilter: 'blur(10px)',
+                          boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
                           '&:hover': { 
                             borderColor: theme.palette.primary.main,
+                            boxShadow: `0 10px 30px ${alpha(theme.palette.primary.main, 0.1)}`,
                             background: theme.palette.mode === 'light' ? '#fff' : alpha(theme.palette.primary.main, 0.05)
                           }
                         }}
@@ -931,8 +948,8 @@ const ChatInterface = () => {
                           variant="body2" 
                           sx={{ 
                             fontWeight: 700, 
-                            fontSize: { xs: '0.8rem', sm: '0.95rem' },
-                            lineHeight: 1.3,
+                            fontSize: { xs: '0.8rem', sm: '0.85rem' },
+                            lineHeight: 1.4,
                             color: theme.palette.text.primary
                           }}
                         >
@@ -940,7 +957,7 @@ const ChatInterface = () => {
                         </Typography>
                       </Box>
                     ))}
-                  </Stack>
+                  </Box>
                 </motion.div>
               </Box>
             ) : (
